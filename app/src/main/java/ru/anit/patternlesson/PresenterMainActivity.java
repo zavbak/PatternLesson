@@ -21,6 +21,7 @@ public class PresenterMainActivity implements IPresenter {
         viewModel.setTxActivity(null);
         this.mLesson = mLesson;
         mLesson.execute();
+        viewModel.animAlpha();
     }
 
 

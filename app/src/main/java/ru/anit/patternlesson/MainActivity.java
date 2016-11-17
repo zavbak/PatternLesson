@@ -1,5 +1,6 @@
 package ru.anit.patternlesson;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import ru.anit.patternlesson.aplication.App;
@@ -108,6 +111,12 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void show(String text) {
         tvActivity.setText(text);
+    }
+
+    @Override
+    public void animAlpha() {
+        Animation anim = AnimationUtils.loadAnimation(this, R.anim.myalpha);
+        tvActivity.setAnimation(anim);
     }
 
 
