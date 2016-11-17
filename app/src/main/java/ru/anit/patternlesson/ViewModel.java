@@ -12,13 +12,7 @@ public class ViewModel {
     String txActivity;
     IView  mView;
 
-    public void animAlpha(){
 
-        if(mView != null){
-            mView.animAlpha();
-        }
-
-    }
 
 
     public void setTxActivity(String txActivity) {

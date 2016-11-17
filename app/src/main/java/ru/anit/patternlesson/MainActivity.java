@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void show(String text) {
-        tvActivity.setText(text);
+        tvActivity.setText(text);animAlpha();
     }
 
     @Override
