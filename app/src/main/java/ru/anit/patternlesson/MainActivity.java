@@ -14,11 +14,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import ru.anit.patternlesson.aplication.App;
 import ru.anit.patternlesson.lessons.lesson1.Lesson1;
 import ru.anit.patternlesson.lessons.lesson2.Lesson2;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,IView {
+        implements NavigationView.OnNavigationItemSelectedListener, IView {
 
     IPresenter mPresenter;
     TextView tvActivity;
@@ -32,9 +33,8 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         tvActivity = (TextView) findViewById(R.id.tvActivity);
-        mPresenter = new PresenterMainActivity(this);
-
-
+        mPresenter = App.getInstanse().getPresenter();
+        mPresenter.setView(this);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -109,4 +109,6 @@ public class MainActivity extends AppCompatActivity
     public void show(String text) {
         tvActivity.setText(text);
     }
+
+
 }

@@ -7,4 +7,5 @@ package ru.anit.patternlesson;
 public interface IView {
 
     void show(String text);
+
 }

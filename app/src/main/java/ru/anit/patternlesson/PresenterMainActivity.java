@@ -1,6 +1,6 @@
 package ru.anit.patternlesson;
 
-import ru.anit.patternlesson.lessons.ILesson;
+import ru.anit.patternlesson.lessons.Lesson;
 
 /**
  * Created by 79900 on 17.11.2016.
@@ -8,19 +8,36 @@ import ru.anit.patternlesson.lessons.ILesson;
 
 public class PresenterMainActivity implements IPresenter {
 
-    IView mView;
-    ILesson mLesson;
+    IView     mView;
+    Lesson mLesson;
+    ViewModel viewModel;
 
-
-
-    public PresenterMainActivity(IView view) {
-        this.mView = view;
-        mView.show("Ready..");
+    public PresenterMainActivity() {
+        viewModel = new ViewModel();
     }
 
-
-    public void setLesson(ILesson mLesson) {
+    @Override
+    public void setLesson(Lesson mLesson) {
+        viewModel.setTxActivity(null);
         this.mLesson = mLesson;
-        mView.show(mLesson.execute());
+        mLesson.execute();
     }
+
+
+    @Override
+    public void printLn(String text) {
+        if(viewModel.getTxActivity() == null){
+            viewModel.setTxActivity(text);
+        }else{
+            viewModel.setTxActivity(viewModel.getTxActivity()+ " \n"+ text);
+        }
+    }
+
+    @Override
+    public void setView(IView mView) {
+        this.mView = mView;
+        viewModel.setView(mView);
+    }
+
+
 }

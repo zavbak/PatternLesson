@@ -1,6 +1,6 @@
 package ru.anit.patternlesson;
 
-import ru.anit.patternlesson.lessons.ILesson;
+import ru.anit.patternlesson.lessons.Lesson;
 
 /**
  * Created by 79900 on 17.11.2016.
@@ -8,5 +8,8 @@ import ru.anit.patternlesson.lessons.ILesson;
 
 public interface IPresenter {
 
-    void setLesson(ILesson lesson);
+    void setLesson(Lesson lesson);
+    void printLn(String text);
+    void setView(IView mView);
+
 }
